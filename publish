@@ -1,0 +1,5 @@
+rm -r dist && python setup.py sdist
+twine upload --repository testpypi dist/*
+pip install dist/dream-my-plots-1.0.5.tar.gz
+
+conda create --name myenv python=3.8

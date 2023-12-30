@@ -1,0 +1,9 @@
+matplotlib
+pandas
+ipython
+numpy
+python-dotenv
+langchain==0.0.316
+openai==0.28.1
+pygments
+mplcyberpunk
