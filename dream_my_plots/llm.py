@@ -15,11 +15,6 @@ class LLM:
         self.model_params = model_params
 
         os.environ[f"{model.upper()}_API_KEY"] = self.api_key or ""
-        # self.model_params[f"{model.upper()}_API_KEY"] = self.api_key
-
-        # Set default model_name to GPT-4 for OpenAI if not provided
-        # if 'model_name' not in self.model_params and model == "OpenAI":
-        #     self.model_params['model_name'] = "gpt-4"  # Defaulting to "gpt-4"
 
         # Check if model is a string (model type name) or already an instance of a model
         if isinstance(model, str):
@@ -42,26 +37,3 @@ class LLM:
         result = self.model.invoke(prompt)
         
         return result.content
-
-# def main():
-#     # Set your API key in environment as LLM_API_KEY or pass it directly
-#     # os.environ['DREAMPLOT_LLM_API_KEY'] = "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"
-
-#     # Example using a string to specify the model, no api_key provided so defaults to environment variable
-#     llm = LLM(
-#         "OpenAI",  # model: Indicates the type of model to use, in this case, "OpenAI".
-#         # api_key = "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",
-#         # model_name="gpt-4",  # model_name: The specific model of OpenAI to use, here "gpt-3.5-turbo".
-#         temperature=0.7,  # temperature: Controls the randomness of the output. Higher values lead to more random completions.
-#         max_tokens=100000,  # max_tokens: The maximum length of the generated text (in tokens).
-#         top_p=1,  # top_p: Controls diversity via nucleus sampling: 1.0 means no nucleus sampling and 0<x<1 means sampling from the smallest set of words whose cumulative probability exceeds x.
-#         frequency_penalty=0,  # frequency_penalty: Decreases the likelihood of repetition in generated text.
-#         presence_penalty=0.6  # presence_penalty: Alters the likelihood of new language versus sticking with what's already mentioned.
-#     )
-
-#     prompt = "Translate the following English text to French: 'Hello, world!'"
-#     response_openai = llm.predict(prompt)
-#     print(response_openai)
-
-# # if __name__ == "__main__":
-# #     main()

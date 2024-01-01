@@ -116,3 +116,62 @@ DreamMyPlots(df, """
     # 🎨 Give a large title please, fit upto 4 subplots horizontally
 """)
 ```
+
+### 🌑 Dark theme
+
+Set an environment with value of `DARK` or `LIGHT` for the syntax higlight
+
+```bash
+DREAM_MY_PLOTS_THEME=DARK
+```
+
+or send it as a parameter in the class
+
+```python
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    Make a scatter plot !
+""", dark=True)
+```
+
+### 🔑 API key
+
+You can pass it directly instead of using .env files (not recommended)
+
+```python
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    Make a histogram plot !
+""", api_key="*****")
+```
+
+### Errors !
+
+Try to rexecute your code, as it is or add more specifications to the prompt ... You are last error and generated code is automatically attached when you resend your prompts
+
+### 📝🔧 Custom Prompt Template (🌱 🇦lpha version)
+
+```python
+from langchain.prompts.prompt import PromptTemplate
+template = PromptTemplate(
+    input_variables=["df", "prompt", "previous_code", "previous_error"], template="your custom template content"
+)
+
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    Make a histogram plot !
+""", prompt="*****", template)
+```
+
+### 💬🔧 Custom LLM (🌱🇦lpha version)
+
+It's based on langchain, you can use your custom llm provider
+
+```python
+from langchain.chat_models import AzureChatOpenAI
+
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    Make a histogram plot !
+""", llm=AzureChatOpenAI(deployment_name="YOUR_DEPLOYMENT_NAME", openai_api_version="2023-05-15", openai_api_key=openai_api_key, ...))
+```
