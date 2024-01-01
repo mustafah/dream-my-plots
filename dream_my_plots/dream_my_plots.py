@@ -1,14 +1,16 @@
 import pandas as pd
-from llm import LLM
+from .llm import LLM
 
-from prompt import Prompt
+from .prompt import Prompt
 
-from executor import Executor
-from logger import Logger
+from .executor import Executor
+from .logger import Logger
+
+import os
 
 class DreamMyPlots:
 
-    def __init__(self, df, prompt = None, api_key = None, template = None):
+    def __init__(self, df, prompt = None, api_key = None, dark = None, template = None):
 
         self.df = df
         if not hasattr(df, 'previous_error'):
@@ -17,11 +19,13 @@ class DreamMyPlots:
             setattr(df, 'previous_code', None)
         self.prompt = prompt
         self.template = template
+        self.api_key = api_key
+        self.dark = dark
 
         if prompt:
-            self.dream(prompt, api_key)
+            self.dream(prompt)
 
-    def dream(self, prompt, api_key = None):
+    def dream(self, prompt):
 
         df = self.df
         p = Prompt(prompt, df, self.template, df.previous_code, df.previous_error)    
@@ -30,7 +34,7 @@ class DreamMyPlots:
 
         llm = LLM(
             "OpenAI",  # model: Indicates the type of model to use, in this case, "OpenAI".
-            api_key = api_key,
+            api_key = self.api_key,
             model_name="gpt-4",  # model_name: The specific model of OpenAI to use, here "gpt-3.5-turbo".
             temperature=0.7,  # temperature: Controls the randomness of the output. Higher values lead to more random completions.
             # max_tokens=100,  # max_tokens: The maximum length of the generated text (in tokens).
@@ -41,6 +45,9 @@ class DreamMyPlots:
         response = llm.predict(p.value)
 
         Logger().log({"title": "🔮 Suggested Response !", "details": response})
+
+        if self.dark is not None:
+            os.environ["DREAM_MY_PLOTS_THEME"] = 'dark' if self.dark else 'light'
 
         executor = Executor()
         error = executor.run(response, self.df,  globals(), locals())
