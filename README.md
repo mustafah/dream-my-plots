@@ -33,19 +33,15 @@ import numpy as np
 df = pd.DataFrame(np.random.rand(100), columns=['A'])
 ```
 
-```python
-
-```
-
 ## **🌱 How to Begin**
 
 * 💻 Install :
 
 ```bash
-pip install dream-my-plots
+pip install git+https://github.com/mustafah/dream-my-plots.git@1.0.0
 ```
 
-* 🔑 Environment variables should contain your OpenAI (or other LangChain compliant LLM) API key :
+* 🔑 Environment variables should contain your [OpenAI](https://platform.openai.com/api-keys) (or other LangChain compliant [LLM](https://python.langchain.com/docs/integrations/chat/)) [API key](https://platform.openai.com/api-keys) :
 
 ```bash
 # Sample .env file
