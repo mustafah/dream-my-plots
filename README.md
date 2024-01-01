@@ -8,12 +8,11 @@
   <img alt="" src="https://badge.fury.io/py/plotai.svg"/>
 </p>
 
-![1704122382605](images/README/relaxed-programmer.png)
 ![1704128527248](images/README/relaxed-programmer2.jpeg)
 
 # DreamMyPlots 🌜✨🖼️
 
-DreamMyPlots is a friendly utitly class for anyone doing data science, who want to turn numbers and data into seaborn/matplot plots quickly, through the power of Python's graph-making skills with any popular LLM prompts (through Langchain)to make even complex charts simple to create.
+DreamMyPlots is a friendly utility class for anyone doing data science, who want to turn numbers and data into seaborn/matplot plots quickly, through the power of Python's graph-making skills with any popular LLM prompts (through Langchain)to make even complex charts simple to create.
 
 Here's how you can use it:
 
@@ -163,7 +162,7 @@ DreamMyPlots(df, """
 """, prompt="*****", template)
 ```
 
-### 💬🔧 Custom LLM (🌱🇦lpha version)
+### 💬🔧 Custom LLM (🌱 🇦lpha version)
 
 It's based on langchain, you can use your custom llm provider
 
