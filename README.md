@@ -1,4 +1,3 @@
-
 <h1 align="center">
 	DreamMyPlots 🌜✨🖼️
 </h1>
@@ -9,7 +8,8 @@
   <img alt="" src="https://badge.fury.io/py/plotai.svg"/>
 </p>
 
-![1704122382605](images/README/relaxed-programmer.png)![1704128527248](image/README/1704128527248.png)
+![1704122382605](images/README/relaxed-programmer.png)
+![1704128527248](images/README/relaxed-programmer2.jpeg)
 
 # DreamMyPlots 🌜✨🖼️
 
@@ -26,3 +26,93 @@ And this may:
 * **Saves Time** ⏰: No need to write complex code from scratch. It's quicker to get your visuals ready.
 * **Boosts Creativity** 🎨: Encourages you to experiment with different types of visuals without the heavy lifting.
 * **Simplifies Learning** 📘: Makes it easier to jump into data visualization, even if you're new to data science.
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.random.rand(100), columns=['A'])
+```
+
+```python
+
+```
+
+## **🌱 How to Begin**
+
+* 💻 Install :
+
+```bash
+pip install dream-my-plots
+```
+
+* 🔑 Environment variables should contain your OpenAI (or other LangChain compliant LLM) API key :
+
+```bash
+# Sample .env file
+DREAM_MY_PLOTS_LLM_API_KEY=your-key-here
+```
+
+* 📈 Create your dataframe :
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.random.rand(100, 3), columns=['A', 'B', 'C'])
+```
+
+* 🎨 Dream your plot :
+
+```python
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    Make line plots for first two columns, and first 7 rows !
+""")
+```
+
+## Examples
+
+#### Comparative Distributions of Two Class Datasets
+
+📈 Create your dataframe :
+
+```python
+import numpy as np
+
+# Generating features for Class A & B with normal distribution
+features_class_A = np.random.normal(70, 10, 100)
+features_class_B = np.random.normal(80, 15, 100)
+features = np.concatenate([features_class_A, features_class_B])  # Combining Class A and B features
+
+classes = ['Class A'] * 100 + ['Class B'] * 100  # Creating labels for the classes
+
+import pandas as pd
+df = pd.DataFrame({'Feature': features, 'Class': classes})  # Creating DataFrame with features and class labels
+```
+
+🌟✍️ Send your prompt :
+
+```python
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    📊 Make a plot contains 6 kinds of Distribution Plots (Categorical and Continuous Distribution plots)
+    🎨 Give a large title please, fit upto 4 subplots horizontally
+""")
+```
+
+![1704134704077](images/README/two-class-datasets.gif)
+
+## 💬✨ More to say
+
+### Commenting
+
+You use # character to comment any line in prompt, so it will be not sent to the LLM
+
+```python
+from dream_my_plots import DreamMyPlots
+DreamMyPlots(df, """
+    📊 Make a plot contains 6 kinds of Distribution Plots (Categorical and Continuous Distribution plots)
+    # 🎨 Give a large title please, fit upto 4 subplots horizontally
+""")
+```
