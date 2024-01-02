@@ -5,7 +5,7 @@
   <em>Create plots with LLMs through OpenAI and langchain</em>
 </p>
 <p align="center">
-  <img alt="" src="https://badge.fury.io/py/plotai.svg"/>
+  <img alt="" src="https://badge.fury.io/py/dream-my-plots.svg"/>
 </p>
 
 ![1704128527248](images/README/relaxed-programmer2.jpeg)
@@ -36,7 +36,10 @@ df = pd.DataFrame(np.random.rand(100), columns=['A'])
 ## **🌱 How to Begin**
 
 * 💻 Install :
-
+```bash
+pip install dream-my-plots
+```
+or through github tags,
 ```bash
 pip install git+https://github.com/mustafah/dream-my-plots.git@1.0.0
 ```
