@@ -8,7 +8,7 @@
   <img alt="" src="https://badge.fury.io/py/dream-my-plots.svg"/>
 </p>
 
-![1704128527248](images/README/relaxed-programmer2.jpeg)
+![1704128527248](https://raw.githubusercontent.com/mustafah/dream-my-plots/main/images/README/relaxed-programmer2.jpeg)
 
 # DreamMyPlots 🌜✨🖼️
 
