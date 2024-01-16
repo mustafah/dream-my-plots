@@ -22,7 +22,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mustafah/dream-my-plots",
-    author="MLJAR",
+    author="mustafah",
     author_email="mustafah.elbanna@gmail.com",
     license="Apache 2.0",
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
